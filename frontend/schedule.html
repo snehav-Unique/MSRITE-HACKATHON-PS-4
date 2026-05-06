@@ -482,7 +482,8 @@ function calCard(item) {
 
 // ── Load weekly calendar ───────────────────────────────────────
 async function loadWeekly() {
-  const d = await fetch(`${API}/schedule/weekly`).then(r => r.json());
+  const params = new URLSearchParams({ week_offset: currentWeekOffset, platform: currentPlatform });
+  const d = await fetch(`${API}/schedule/weekly?${params}`).then(r => r.json());
   weeklyData = d;
 
   const weekLabel = document.getElementById('week-label');
@@ -670,6 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadWeekly();
   loadQueue();
 
+  // Export / view toggle / add content
   document.getElementById('export-btn').addEventListener('click', exportSchedule);
   document.getElementById('view-calendar-btn').addEventListener('click', () => setView('calendar'));
   document.getElementById('view-list-btn').addEventListener('click', () => setView('list'));
@@ -677,8 +679,42 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('close-modal-btn').addEventListener('click', closeModal);
   document.getElementById('cancel-modal-btn').addEventListener('click', closeModal);
   document.getElementById('add-content-form').addEventListener('submit', submitAddContent);
-  // Close modal on backdrop click
   document.getElementById('add-modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+
+  // ── Week navigation ────────────────────────────────────────
+  document.getElementById('prev-week-btn').addEventListener('click', () => {
+    currentWeekOffset--;
+    loadWeekly();
+  });
+  document.getElementById('next-week-btn').addEventListener('click', () => {
+    currentWeekOffset++;
+    loadWeekly();
+  });
+
+  // ── Platform filter dropdown ───────────────────────────────
+  const filterBtn      = document.getElementById('filter-platform-btn');
+  const filterDropdown = document.getElementById('filter-dropdown');
+  const filterLabel    = document.getElementById('filter-label');
+
+  filterBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    filterDropdown.classList.toggle('hidden');
+  });
+
+  document.querySelectorAll('.filter-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentPlatform = btn.dataset.platform;
+      filterLabel.textContent = currentPlatform === 'All' ? 'Filter by Platform' : currentPlatform;
+      filterDropdown.classList.add('hidden');
+      // Highlight active option
+      document.querySelectorAll('.filter-opt').forEach(b => b.classList.remove('text-primary', 'bg-primary/10'));
+      btn.classList.add('text-primary', 'bg-primary/10');
+      loadWeekly();
+    });
+  });
+
+  // Close dropdown when clicking elsewhere
+  document.addEventListener('click', () => filterDropdown.classList.add('hidden'));
 });
 </script>
     <!-- Footer -->
