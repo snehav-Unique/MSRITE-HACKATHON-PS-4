@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#e4dfff",
+                        "tertiary-fixed-dim": "#a1c9ff",
+                        "surface-dim": "#131411",
+                        "secondary-fixed-dim": "#68dbae",
+                        "surface-container-highest": "#353532",
+                        "primary-container": "#8c84eb",
+                        "surface-container-lowest": "#0e0e0c",
+                        "inverse-primary": "#5951b4",
+                        "on-secondary-container": "#003121",
+                        "on-primary-container": "#23127d",
+                        "tertiary-fixed": "#d2e4ff",
+                        "on-background": "#e5e2dd",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#c5c0ff",
+                        "surface-bright": "#3a3936",
+                        "background": "#131411",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#002115",
+                        "on-primary": "#2a1c84",
+                        "on-tertiary": "#00325a",
+                        "on-tertiary-fixed-variant": "#004880",
+                        "on-secondary": "#003827",
+                        "secondary-container": "#26a37a",
+                        "on-surface-variant": "#c8c4d4",
+                        "primary": "#c5c0ff",
+                        "primary-fixed-dim": "#c5c0ff",
+                        "surface-container-high": "#2a2a27",
+                        "secondary-fixed": "#86f8c9",
+                        "error-container": "#93000a",
+                        "tertiary": "#a1c9ff",
+                        "outline": "#928f9d",
+                        "on-primary-fixed": "#140067",
+                        "secondary": "#68dbae",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "inverse-surface": "#e5e2dd",
+                        "surface-variant": "#353532",
+                        "tertiary-container": "#4494e7",
+                        "on-tertiary-fixed": "#001c38",
+                        "surface-container-low": "#1c1c19",
+                        "on-primary-fixed-variant": "#41379b",
+                        "surface": "#131411",
+                        "on-tertiary-container": "#002b4f",
+                        "surface-container": "#20201d",
+                        "on-surface": "#e5e2dd",
+                        "outline-variant": "#474552",
+                        "inverse-on-surface": "#31302d",
+                        "insta-pink": "#d4537e",
+                        "yt-coral": "#d85a30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "2xl": "48px",
+                        "xl": "32px",
+                        "margin": "32px",
+                        "3xl": "64px",
+                        "gutter": "20px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "h1": ["Space Grotesk"],
+                        "label-md": ["Space Grotesk"],
+                        "h2": ["Space Grotesk"],
+                        "label-sm": ["Space Grotesk"],
+                        "h3": ["Space Grotesk"],
+                        "body-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "h1": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "h2": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.08em", "fontWeight": "500" }],
+                        "h3": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(127, 119, 221, 0.5);
+            box-shadow: 0 0 15px rgba(127, 119, 221, 0.15);
+        }
+
+        .engine-glow {
+            box-shadow: 0 0 12px rgba(127, 119, 221, 0.4);
+            border-color: #7f77dd;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md selection:bg-primary/30">
+    <!-- SideNavBar -->
+    <aside
+        class="fixed left-0 top-0 h-screen w-[280px] bg-surface-container-low/80 backdrop-blur-xl border-r border-outline-variant shadow-lg flex flex-col py-lg z-50">
+        <div class="px-xl mb-3xl">
+            <h2 class="font-h2 text-h2 font-bold text-primary">OptiMetric</h2>
+            <p class="font-body-sm text-on-surface-variant opacity-70">Command Center</p>
+        </div>
+        <nav class="flex-1 flex flex-col gap-xs px-md">
+            <a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant font-medium hover:bg-primary/10 hover:text-primary transition-colors transition-transform scale-95 active:scale-90"
+                href="dashboard.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="font-body-md">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant font-medium hover:bg-primary/10 hover:text-primary transition-colors transition-transform scale-95 active:scale-90"
+                href="analytics.html">
+                <span class="material-symbols-outlined">analytics</span>
+                <span class="font-body-md">Analytics</span>
+            </a>
+            <a class="flex items-center gap-md px-md py-sm rounded-lg text-primary font-bold border-r-2 border-primary bg-primary/10 transition-colors transition-transform scale-95 active:scale-90"
+                href="schedule.html">
+                <span class="material-symbols-outlined">calendar_today</span>
+                <span class="font-body-md">Schedule</span>
+            </a>
+            <a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant font-medium hover:bg-primary/10 hover:text-primary transition-colors transition-transform scale-95 active:scale-90"
+                href="strategy.html">
+                <span class="material-symbols-outlined">groups</span>
+                <span class="font-body-md">Strategy</span>
+            </a>
+        </nav>
+        <div class="mt-auto px-md flex flex-col gap-xs">
+            <a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant font-medium hover:bg-primary/10 hover:text-primary transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="font-label-md">Settings</span>
+            </a>
+            <a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant font-medium hover:bg-primary/10 hover:text-primary transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">help</span>
+                <span class="font-label-md">Support</span>
+            </a>
+        </div>
+    </aside>
+    <!-- TopAppBar -->
+    <header
+        class="fixed top-0 right-0 w-[calc(100%-280px)] h-16 bg-background/50 backdrop-blur-md border-b border-outline-variant flex items-center justify-between px-xl z-40">
+        <div class="flex items-center gap-lg">
+            <div class="relative w-72">
+                <span
+                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+                <input
+                    class="w-full bg-surface-container-highest border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary"
+                    placeholder="Search strategy logs..." type="text" />
+            </div>
+        </div>
+        <div class="flex items-center gap-xl">
+            <div class="flex gap-md">
+                <button
+                    class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer opacity-80 hover:opacity-100 transition-colors">notifications</button>
+                <button
+                    class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer opacity-80 hover:opacity-100 transition-colors">history</button>
+            </div>
+            <div class="h-6 w-px bg-outline-variant"></div>
+            <div class="flex items-center gap-md cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
+                <span class="font-label-md text-on-surface-variant">Support</span>
+                <img alt="User Avatar" class="w-8 h-8 rounded-full bg-surface-container-highest"
+                    data-alt="A detailed professional portrait of a tech-savvy digital creator with futuristic glasses, set against a dark studio background with soft purple rim lighting, reflecting the tech-noir aesthetic of the dashboard."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTmJ3LAbxizXY4ukZULj76lMsjaQz2LVdDzFblSpcSd2F0qbjxQx8zU6WZNvVsDcsmTxTzTIiGxzK3rqtyMDQIRl0-C0iOnbozd3ntRJwWI6fG9s93kk22Ts0EKtfP3hWQtFo92Y-467RBceAFxZrEgfosfBMkfGO1xf8h41RIz1_JM1oRR921DK69uttkI9ioQcB3hpkq0VkfnBUaDFPaONYY0mlg4-pwqYFKT4w8_HjxcxlsTSq50AiCg6v18M1tu5sa2GYB-64" />
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="ml-[280px] pt-16 min-h-screen p-xl flex flex-col gap-xl">
+        <!-- Header Section & Today's Focus -->
+        <section class="grid grid-cols-12 gap-lg items-start">
+            <div class="col-span-12 lg:col-span-4">
+                <h1 class="font-h1 text-h1 text-on-surface mb-sm">Content Schedule</h1>
+                <p class="text-on-surface-variant font-body-md">Maximize impact with automated dispatch windows.</p>
+                <div class="mt-lg flex gap-md flex-wrap">
+                    <button id="export-btn"
+                        class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md hover:bg-primary-container transition-colors flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-[18px]">download</span>
+                        Export Schedule
+                    </button>
+                    <div class="flex p-1 bg-surface-container-low rounded-lg border border-outline-variant">
+                        <button id="view-calendar-btn"
+                            class="bg-surface-variant text-primary px-md py-1.5 rounded font-label-sm transition-colors">Calendar</button>
+                        <button id="view-list-btn"
+                            class="text-on-surface-variant px-md py-1.5 rounded font-label-sm hover:text-primary transition-colors">List</button>
+                    </div>
+                    <button id="add-content-btn"
+                        class="border border-primary text-primary px-lg py-sm rounded-lg font-label-md hover:bg-primary/10 transition-colors flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-[18px]">add</span>
+                        Add Content
+                    </button>
+                </div>
+            </div>
+            <div class="col-span-12 lg:col-span-8 glass-card p-lg rounded-xl">
+                <div class="flex items-center justify-between mb-md">
+                    <h3 class="font-h3 text-h3 text-primary">Today's Focus</h3>
+                    <span class="text-label-sm text-on-surface-variant uppercase tracking-widest">3 Optimized Windows
+                        Remaining</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+                    <div class="p-md rounded-lg bg-surface-container-highest/50 border border-outline-variant">
+                        <div class="flex items-center justify-between mb-sm">
+                            <span class="text-insta-pink font-label-md">Instagram</span>
+                            <span class="font-body-sm font-bold">14:20</span>
+                        </div>
+                        <p class="text-body-sm text-on-surface-variant truncate">ID: #IG-9832-REEL</p>
+                        <div class="mt-md h-1 bg-surface-container-low rounded-full">
+                            <div class="h-full bg-insta-pink w-[85%] rounded-full shadow-[0_0_8px_#d4537e]"></div>
+                        </div>
+                    </div>
+                    <div
+                        class="p-md rounded-lg bg-surface-container-highest/50 border border-outline-variant border-primary/40 shadow-[0_0_15px_rgba(127,119,221,0.1)]">
+                        <div class="flex items-center justify-between mb-sm">
+                            <span class="text-yt-coral font-label-md">YouTube</span>
+                            <span class="font-body-sm font-bold text-primary">16:45</span>
+                        </div>
+                        <p class="text-body-sm text-on-surface-variant truncate">ID: #YT-4410-SHORTS</p>
+                        <div class="mt-md h-1 bg-surface-container-low rounded-full">
+                            <div class="h-full bg-primary w-[98%] rounded-full shadow-[0_0_8px_#7f77dd]"></div>
+                        </div>
+                    </div>
+                    <div class="p-md rounded-lg bg-surface-container-highest/50 border border-outline-variant">
+                        <div class="flex items-center justify-between mb-sm">
+                            <span class="text-insta-pink font-label-md">Instagram</span>
+                            <span class="font-body-sm font-bold">19:30</span>
+                        </div>
+                        <p class="text-body-sm text-on-surface-variant truncate">ID: #IG-1120-POST</p>
+                        <div class="mt-md h-1 bg-surface-container-low rounded-full">
+                            <div class="h-full bg-insta-pink w-[70%] rounded-full opacity-60"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="grid grid-cols-12 gap-lg flex-1">
+            <!-- Weekly Calendar View -->
+            <section class="col-span-12 xl:col-span-9 flex flex-col gap-md">
+                <div class="flex items-center justify-between">
+                    <div class="flex gap-sm relative">
+                        <button id="filter-platform-btn"
+                            class="bg-surface-container-high text-on-surface px-md py-sm rounded-lg font-label-sm border border-outline-variant flex items-center gap-xs hover:border-primary transition-colors">
+                            <span class="material-symbols-outlined text-[18px]">filter_list</span>
+                            <span id="filter-label">Filter by Platform</span>
+                        </button>
+                        <!-- Filter dropdown -->
+                        <div id="filter-dropdown" class="hidden absolute top-full mt-xs left-0 z-30 bg-surface-container-high border border-outline-variant rounded-xl overflow-hidden shadow-lg min-w-[180px]">
+                            <button data-platform="All"   class="filter-opt w-full text-left px-md py-sm text-body-sm hover:bg-primary/10 hover:text-primary transition-colors flex items-center gap-sm"><span class="w-2 h-2 rounded-full bg-outline-variant inline-block"></span>All Platforms</button>
+                            <button data-platform="Instagram" class="filter-opt w-full text-left px-md py-sm text-body-sm hover:bg-primary/10 hover:text-primary transition-colors flex items-center gap-sm"><span class="w-2 h-2 rounded-full inline-block" style="background:#d4537e"></span>Instagram</button>
+                            <button data-platform="YouTube"   class="filter-opt w-full text-left px-md py-sm text-body-sm hover:bg-primary/10 hover:text-primary transition-colors flex items-center gap-sm"><span class="w-2 h-2 rounded-full inline-block" style="background:#d85a30"></span>YouTube</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-lg">
+                        <button id="prev-week-btn"
+                            class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">chevron_left</button>
+                        <span id="week-label" class="font-h3 text-h3">Nov 18 - Nov 24</span>
+                        <button id="next-week-btn"
+                            class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">chevron_right</button>
+                    </div>
+                </div>
+                <div class="glass-card rounded-xl overflow-hidden border border-outline-variant flex flex-col h-full">
+                    <div class="grid grid-cols-7 border-b border-outline-variant bg-surface-container">
+                        <div
+                            class="py-md text-center border-r border-outline-variant font-label-md text-on-surface-variant">
+                            MON <span class="block text-h3 text-on-surface mt-xs">18</span></div>
+                        <div
+                            class="py-md text-center border-r border-outline-variant font-label-md text-on-surface-variant bg-primary/5">
+                            TUE <span class="block text-h3 text-primary mt-xs">19</span></div>
+                        <div
+                            class="py-md text-center border-r border-outline-variant font-label-md text-on-surface-variant">
+                            WED <span class="block text-h3 text-on-surface mt-xs">20</span></div>
+                        <div
+                            class="py-md text-center border-r border-outline-variant font-label-md text-on-surface-variant">
+                            THU <span class="block text-h3 text-on-surface mt-xs">21</span></div>
+                        <div
+                            class="py-md text-center border-r border-outline-variant font-label-md text-on-surface-variant">
+                            FRI <span class="block text-h3 text-on-surface mt-xs">22</span></div>
+                        <div
+                            class="py-md text-center border-r border-outline-variant font-label-md text-on-surface-variant">
+                            SAT <span class="block text-h3 text-on-surface mt-xs">23</span></div>
+                        <div class="py-md text-center font-label-md text-on-surface-variant">SUN <span
+                                class="block text-h3 text-on-surface mt-xs">24</span></div>
+                    </div>
+                    <div id="calendar-grid" class="grid grid-cols-7 flex-1 min-h-[600px] bg-surface-container-lowest/30">
+                        <div id="cal-day-0" class="p-sm border-r border-outline-variant/30 flex flex-col gap-sm"></div>
+                        <div id="cal-day-1" class="p-sm border-r border-outline-variant/30 flex flex-col gap-sm"></div>
+                        <div id="cal-day-2" class="p-sm border-r border-outline-variant/30 flex flex-col gap-sm"></div>
+                        <div id="cal-day-3" class="p-sm border-r border-outline-variant/30 flex flex-col gap-sm"></div>
+                        <div id="cal-day-4" class="p-sm border-r border-outline-variant/30 flex flex-col gap-sm"></div>
+                        <div id="cal-day-5" class="p-sm border-r border-outline-variant/30 flex flex-col gap-sm"></div>
+                        <div id="cal-day-6" class="p-sm flex flex-col gap-sm"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- Unscheduled Queue Sidebar -->
+            <section class="col-span-12 xl:col-span-3 flex flex-col gap-md">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-h3 text-h3 text-on-surface">Unscheduled Queue</h3>
+                    <span
+                        class="bg-surface-container-highest px-sm py-0.5 rounded text-xs font-bold text-outline">8</span>
+                </div>
+                <div class="glass-card flex-1 rounded-xl p-md flex flex-col gap-md overflow-y-auto">
+                    <div id="queue-items" class="flex flex-col gap-md"></div>
+                    <div class="h-24 rounded-lg border border-dashed border-outline-variant/30 flex items-center justify-center">
+                        <span class="text-label-sm text-outline">Drop to prioritize</span>
+                    </div>
+                    <button class="mt-auto w-full py-md border border-primary/30 rounded-lg text-primary font-label-md hover:bg-primary/5 transition-colors">
+                        Auto-Schedule Queue
+                    </button>
+                </div>
+                <div class="glass-card rounded-xl p-md overflow-hidden relative">
+                    <img alt="Heatmap" class="w-full h-24 object-cover rounded-lg opacity-40 grayscale"
+                        data-alt="A high-contrast digital heatmap visualization showing peak engagement times across a 24-hour cycle. The visual style is data-heavy with vibrant purple and cyan data points against a pitch-black background, creating a futuristic command-center feeling with glowing data nodes and thin grid lines."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHtZ9pTvYcil2iIDpAcqwm0fuN9czzDYdC8KEQVvupTFluxCKRCUundocZ4RfYsWG-YpgTtFWia4GLB190uk_75R-zhOUc-iUQLEzQBbFBFFVbhZsLposSiFIm6RBCQuCOa2CwoIreXWR7df8bP8b6DKRn7C4Q3k1FFjYM4MoQf2SpHNhGDCR6FjYq-8OrWzJwOG-wz3HfhqymdliPqpt4bTO4YE9yFwX9mCqp5W2LUlwDrlF68l4mtX4fatzYJPYdp6GjfIvKFeo" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent p-md flex flex-col justify-end">
+                        <p class="text-label-sm font-bold text-on-surface">Viral Peak Prediction</p>
+                        <p class="text-[10px] text-on-surface-variant">Next spike in 4h 20m</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- List View (hidden by default) -->
+        <section id="list-view" class="hidden glass-card rounded-xl overflow-hidden">
+            <div class="p-lg border-b border-outline-variant/30 flex justify-between items-center">
+                <h3 class="font-h3 text-h3">All Scheduled Content</h3>
+                <span id="list-count" class="text-label-sm text-on-surface-variant"></span>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-surface-container text-label-sm font-label-sm text-outline uppercase tracking-widest">
+                            <th class="px-xl py-lg">Content ID</th>
+                            <th class="px-xl py-lg">Platform</th>
+                            <th class="px-xl py-lg">Type</th>
+                            <th class="px-xl py-lg">Scheduled Time</th>
+                            <th class="px-xl py-lg">Status</th>
+                            <th class="px-xl py-lg text-right">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list-tbody" class="text-body-sm divide-y divide-outline-variant/20"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add Content Modal -->
+    <div id="add-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+        <div class="glass-card rounded-2xl p-xl w-full max-w-md mx-lg shadow-2xl border border-primary/20">
+            <div class="flex justify-between items-center mb-xl">
+                <h3 class="font-h3 text-h3 text-primary">Add Content to Schedule</h3>
+                <button id="close-modal-btn" class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">close</button>
+            </div>
+            <form id="add-content-form" class="space-y-lg">
+                <div class="space-y-xs">
+                    <label class="font-label-sm text-on-surface-variant uppercase tracking-wider">Content ID</label>
+                    <input id="form-content-id" type="text" placeholder="e.g. #0042"
+                        class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg px-md py-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
+                </div>
+                <div class="grid grid-cols-2 gap-md">
+                    <div class="space-y-xs">
+                        <label class="font-label-sm text-on-surface-variant uppercase tracking-wider">Platform</label>
+                        <select id="form-platform"
+                            class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg px-md py-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
+                            <option>Instagram</option>
+                            <option>YouTube</option>
+                        </select>
+                    </div>
+                    <div class="space-y-xs">
+                        <label class="font-label-sm text-on-surface-variant uppercase tracking-wider">Content Type</label>
+                        <select id="form-content-type"
+                            class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg px-md py-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
+                            <option>Reel</option>
+                            <option>Post</option>
+                            <option>Short</option>
+                            <option>Video</option>
+                            <option>Story</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="space-y-xs">
+                    <label class="font-label-sm text-on-surface-variant uppercase tracking-wider">Schedule Date &amp; Time</label>
+                    <input id="form-datetime" type="datetime-local"
+                        class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg px-md py-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
+                </div>
+                <div class="space-y-xs">
+                    <label class="font-label-sm text-on-surface-variant uppercase tracking-wider">Engagement Score (0–1)</label>
+                    <input id="form-score" type="number" min="0" max="1" step="0.01" placeholder="0.85"
+                        class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg px-md py-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"/>
+                </div>
+                <div id="form-error" class="hidden text-error text-body-sm"></div>
+                <div class="flex gap-md pt-sm">
+                    <button type="button" id="cancel-modal-btn"
+                        class="flex-1 py-sm border border-outline-variant text-on-surface-variant rounded-lg font-label-md hover:bg-surface-container-high transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                        class="flex-1 py-sm bg-primary text-on-primary rounded-lg font-label-md font-bold hover:brightness-110 active:scale-95 transition-all">
+                        Add to Schedule
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+<script>
+const API = 'http://localhost:5000/api';
+let weeklyData = null;
+let currentWeekOffset = 0;
+let currentPlatform = 'All';
+
+// ── Calendar card ──────────────────────────────────────────────
+function calCard(item) {
+  const isIG   = item.platform === 'Instagram';
+  const hex    = isIG ? '#d4537e' : '#d85a30';
+  const icon   = isIG ? 'photo_library' : 'play_circle';
+  const high   = item.score >= 90;
+
+  const cardStyle = high
+    ? 'background:rgba(127,119,221,0.12);border:1px solid rgba(127,119,221,0.5);box-shadow:0 0 12px rgba(127,119,221,0.4);'
+    : `background:${hex}18;border:1px solid ${hex}44;`;
+
+  const timeColor  = high ? '#c5c0ff' : '#e5e2dd';
+  const scoreStyle = high
+    ? 'color:#c5c0ff;background:rgba(197,192,255,0.15);'
+    : `color:${hex};background:${hex}22;`;
+
+  return `<div class="p-sm rounded flex flex-col gap-xs" style="${cardStyle}">
+    <div class="flex items-center justify-between">
+      <span class="material-symbols-outlined text-sm" style="color:${hex}">${icon}</span>
+      <span class="text-[10px] font-bold" style="color:${timeColor}">${item.time}</span>
+    </div>
+    <span class="text-[11px] text-on-surface truncate">${item.content_id}</span>
+    <div class="flex items-center gap-xs">
+      <span class="text-[10px] font-bold px-1 rounded" style="${scoreStyle}">${(item.score/100).toFixed(2)}</span>
+      ${high ? '<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>' : ''}
+    </div>
+  </div>`;
+}
+
+// ── Load weekly calendar ───────────────────────────────────────
+async function loadWeekly() {
+  const d = await fetch(`${API}/schedule/weekly`).then(r => r.json());
+  weeklyData = d;
+
+  const weekLabel = document.getElementById('week-label');
+  if (weekLabel) weekLabel.textContent = d.week_label;
+
+  const headers = document.querySelectorAll('.grid.grid-cols-7.border-b > div');
+  d.day_names.forEach((name, i) => {
+    if (!headers[i]) return;
+    headers[i].innerHTML = `${name} <span class="block text-h3 ${i === d.today_idx ? 'text-primary' : 'text-on-surface'} mt-xs">${d.day_numbers[i]}</span>`;
+    if (i === d.today_idx) headers[i].classList.add('bg-primary/5');
+  });
+
+  for (let i = 0; i < 7; i++) {
+    const col = document.getElementById(`cal-day-${i}`);
+    if (!col) continue;
+    if (i === d.today_idx) col.classList.add('bg-primary/5');
+    const items = d.schedule[i] || [];
+    col.innerHTML = items.length
+      ? items.map(calCard).join('')
+      : `<div class="p-sm rounded bg-surface-variant/30 border border-outline-variant border-dashed flex items-center justify-center min-h-[60px] cursor-pointer group">
+           <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">add</span>
+         </div>`;
+  }
+
+  // Also refresh list view if visible
+  if (!document.getElementById('list-view').classList.contains('hidden')) renderListView();
+}
+
+// ── List view ─────────────────────────────────────────────────
+function renderListView() {
+  if (!weeklyData) return;
+  const tbody = document.getElementById('list-tbody');
+  const rows = [];
+  weeklyData.day_names.forEach((day, i) => {
+    (weeklyData.schedule[i] || []).forEach(item => {
+      const isIG = item.platform === 'Instagram';
+      const platColor = isIG ? '#d4537e' : '#d85a30';
+      const statusBadge = item.status === 'posted'
+        ? `<span class="px-sm py-1 rounded bg-secondary/10 text-secondary text-[10px] font-bold">POSTED</span>`
+        : `<span class="px-sm py-1 rounded bg-primary/10 text-primary text-[10px] font-bold">QUEUED</span>`;
+      rows.push(`<tr class="hover:bg-surface-container-low transition-colors">
+        <td class="px-xl py-lg font-mono text-primary">${item.content_id}</td>
+        <td class="px-xl py-lg"><div class="flex items-center gap-sm">
+          <div class="w-2 h-2 rounded-full" style="background:${platColor}"></div>${item.platform}
+        </div></td>
+        <td class="px-xl py-lg text-on-surface-variant">${item.content_type || '—'}</td>
+        <td class="px-xl py-lg">${day} ${weeklyData.day_numbers[i]} · ${item.time}</td>
+        <td class="px-xl py-lg">${statusBadge}</td>
+        <td class="px-xl py-lg text-right font-bold">${(item.score/100).toFixed(2)}</td>
+      </tr>`);
+    });
+  });
+  tbody.innerHTML = rows.length
+    ? rows.join('')
+    : `<tr><td colspan="6" class="px-xl py-xl text-center text-on-surface-variant italic">No scheduled items this week.</td></tr>`;
+  document.getElementById('list-count').textContent = `${rows.length} item${rows.length !== 1 ? 's' : ''}`;
+}
+
+// ── Calendar / List toggle ─────────────────────────────────────
+function setView(view) {
+  const calSection  = document.querySelector('section.col-span-12.xl\\:col-span-9');
+  const calSidebar  = document.querySelector('section.col-span-12.xl\\:col-span-3');
+  const listView    = document.getElementById('list-view');
+  const calBtn      = document.getElementById('view-calendar-btn');
+  const listBtn     = document.getElementById('view-list-btn');
+  const gridWrapper = document.querySelector('.grid.grid-cols-12.gap-lg.flex-1');
+
+  if (view === 'calendar') {
+    gridWrapper && gridWrapper.classList.remove('hidden');
+    listView.classList.add('hidden');
+    calBtn.classList.add('bg-surface-variant', 'text-primary');
+    calBtn.classList.remove('text-on-surface-variant');
+    listBtn.classList.remove('bg-surface-variant', 'text-primary');
+    listBtn.classList.add('text-on-surface-variant');
+  } else {
+    gridWrapper && gridWrapper.classList.add('hidden');
+    listView.classList.remove('hidden');
+    listBtn.classList.add('bg-surface-variant', 'text-primary');
+    listBtn.classList.remove('text-on-surface-variant');
+    calBtn.classList.remove('bg-surface-variant', 'text-primary');
+    calBtn.classList.add('text-on-surface-variant');
+    renderListView();
+  }
+}
+
+// ── Export CSV ────────────────────────────────────────────────
+function exportSchedule() {
+  if (!weeklyData) return;
+  const rows = [['Content ID','Platform','Type','Day','Time','Score','Status']];
+  weeklyData.day_names.forEach((day, i) => {
+    (weeklyData.schedule[i] || []).forEach(item => {
+      rows.push([item.content_id, item.platform, item.content_type || '', day, item.time, (item.score/100).toFixed(2), item.status]);
+    });
+  });
+  const csv = rows.map(r => r.map(v => `"${v}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `schedule_${weeklyData.week_label.replace(/\s/g,'_')}.csv`;
+  a.click();
+}
+
+// ── Add Content modal ─────────────────────────────────────────
+function openModal() {
+  // Pre-fill datetime to next hour
+  const now = new Date(); now.setMinutes(0,0,0);
+  now.setHours(now.getHours() + 1);
+  document.getElementById('form-datetime').value = now.toISOString().slice(0,16);
+  document.getElementById('form-error').classList.add('hidden');
+  document.getElementById('add-content-form').reset();
+  document.getElementById('form-datetime').value = now.toISOString().slice(0,16);
+  document.getElementById('add-modal').classList.remove('hidden');
+}
+function closeModal() {
+  document.getElementById('add-modal').classList.add('hidden');
+}
+
+async function submitAddContent(e) {
+  e.preventDefault();
+  const errEl = document.getElementById('form-error');
+  errEl.classList.add('hidden');
+
+  const content_id = document.getElementById('form-content-id').value.trim();
+  const platform   = document.getElementById('form-platform').value;
+  const ctype      = document.getElementById('form-content-type').value;
+  const dt         = document.getElementById('form-datetime').value;
+  const score      = parseFloat(document.getElementById('form-score').value);
+
+  if (!content_id || !dt || isNaN(score)) {
+    errEl.textContent = 'Please fill in all fields correctly.';
+    errEl.classList.remove('hidden');
+    return;
+  }
+
+  const btn = e.target.querySelector('[type=submit]');
+  btn.textContent = 'Adding…'; btn.disabled = true;
+
+  const res = await fetch(`${API}/schedule/add`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ content_id, platform, content_type: ctype, scheduled_datetime: new Date(dt).toISOString(), score })
+  }).then(r => r.json()).catch(() => ({ success: false }));
+
+  btn.textContent = 'Add to Schedule'; btn.disabled = false;
+
+  if (res.success) {
+    closeModal();
+    loadWeekly();   // refresh calendar
+    loadQueue();
+  } else {
+    errEl.textContent = 'Failed to add. Is the backend running?';
+    errEl.classList.remove('hidden');
+  }
+}
+
+// ── Queue sidebar ─────────────────────────────────────────────
+async function loadQueue() {
+  const items = await fetch(`${API}/schedule/queue`).then(r => r.json());
+  const container = document.getElementById('queue-items');
+  if (!container) return;
+  container.innerHTML = items.map(item => {
+    const isIG  = item.platform === 'Instagram';
+    const hex   = isIG ? '#d4537e' : '#d85a30';
+    const sHex  = item.score >= 0.9 ? '#c5c0ff' : '#928f9d';
+    return `<div class="p-md rounded-lg bg-surface-container border border-outline-variant cursor-grab hover:bg-surface-container-high transition-colors group">
+      <div class="flex items-center justify-between mb-xs">
+        <span class="font-label-sm" style="color:${hex}">${item.content_id}</span>
+        <span class="material-symbols-outlined text-outline group-hover:text-on-surface">drag_indicator</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-xs">
+          <span class="material-symbols-outlined text-sm" style="color:${hex}">${isIG ? 'image' : 'video_library'}</span>
+          <span class="text-body-sm text-on-surface-variant">${item.content_type || 'Content'}</span>
+        </div>
+        <span class="text-xs font-bold" style="color:${sHex}">${item.score}</span>
+      </div>
+    </div>`;
+  }).join('');
+  const badge = document.querySelector('.bg-surface-container-highest.px-sm');
+  if (badge) badge.textContent = items.length;
+}
+
+// ── Boot ──────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  loadWeekly();
+  loadQueue();
+
+  document.getElementById('export-btn').addEventListener('click', exportSchedule);
+  document.getElementById('view-calendar-btn').addEventListener('click', () => setView('calendar'));
+  document.getElementById('view-list-btn').addEventListener('click', () => setView('list'));
+  document.getElementById('add-content-btn').addEventListener('click', openModal);
+  document.getElementById('close-modal-btn').addEventListener('click', closeModal);
+  document.getElementById('cancel-modal-btn').addEventListener('click', closeModal);
+  document.getElementById('add-content-form').addEventListener('submit', submitAddContent);
+  // Close modal on backdrop click
+  document.getElementById('add-modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+});
+</script>
+    <!-- Footer -->
+    <footer
+        class="ml-[280px] bg-surface-dim border-t border-outline-variant/30 w-full py-md px-xl flex flex-row justify-between items-center mt-auto">
+        <div class="flex flex-col">
+            <span class="font-label-md text-on-surface">OptiMetric</span>
+            <span class="font-label-sm text-on-surface-variant opacity-60">© 2024 OptiMetric. Efficiency =
+                ∫(Strategy)dt</span>
+        </div>
+        <div class="flex gap-xl">
+            <a class="font-label-sm text-outline hover:text-tertiary-fixed transition-colors" href="#">Technical
+                Specs</a>
+            <a class="font-label-sm text-outline hover:text-tertiary-fixed transition-colors" href="#">Privacy</a>
+            <a class="font-label-sm text-outline hover:text-tertiary-fixed transition-colors" href="#">API Docs</a>
+        </div>
+        <div class="flex items-center gap-sm">
+            <div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#68dbae]"></div>
+            <span class="font-label-sm text-secondary uppercase tracking-widest">Engine Online</span>
+        </div>
+    </footer>
+</body>
+
+</html>

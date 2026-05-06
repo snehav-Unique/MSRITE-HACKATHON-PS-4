@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OptiMetric | Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#c5c0ff",
+                    "error": "#ffb4ab",
+                    "surface-variant": "#353532",
+                    "outline": "#928f9d",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e5e2dd",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed": "#140067",
+                    "secondary": "#68dbae",
+                    "inverse-primary": "#5951b4",
+                    "inverse-on-surface": "#31302d",
+                    "surface-container-lowest": "#0e0e0c",
+                    "primary-container": "#8c84eb",
+                    "on-tertiary-fixed": "#001c38",
+                    "on-background": "#e5e2dd",
+                    "on-tertiary-fixed-variant": "#004880",
+                    "on-primary-fixed-variant": "#41379b",
+                    "tertiary-fixed-dim": "#a1c9ff",
+                    "primary-fixed-dim": "#c5c0ff",
+                    "surface-container": "#20201d",
+                    "outline-variant": "#474552",
+                    "on-secondary-container": "#003121",
+                    "surface-container-high": "#2a2a27",
+                    "on-secondary": "#003827",
+                    "surface-dim": "#131411",
+                    "on-tertiary-container": "#002b4f",
+                    "on-surface": "#e5e2dd",
+                    "secondary-fixed": "#86f8c9",
+                    "tertiary": "#a1c9ff",
+                    "surface-bright": "#3a3936",
+                    "surface-container-low": "#1c1c19",
+                    "surface-container-highest": "#353532",
+                    "tertiary-container": "#4494e7",
+                    "surface-tint": "#c5c0ff",
+                    "on-secondary-fixed-variant": "#00513a",
+                    "background": "#131411",
+                    "tertiary-fixed": "#d2e4ff",
+                    "secondary-fixed-dim": "#68dbae",
+                    "on-primary": "#2a1c84",
+                    "secondary-container": "#26a37a",
+                    "surface": "#131411",
+                    "on-tertiary": "#00325a",
+                    "primary-fixed": "#e4dfff",
+                    "on-surface-variant": "#c8c4d4",
+                    "on-secondary-fixed": "#002115",
+                    "on-primary-container": "#23127d",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "3xl": "64px",
+                    "xs": "4px",
+                    "unit": "4px",
+                    "md": "16px",
+                    "gutter": "20px",
+                    "margin": "32px",
+                    "xl": "32px",
+                    "2xl": "48px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Space Grotesk"],
+                    "label-md": ["Space Grotesk"],
+                    "h1": ["Space Grotesk"],
+                    "body-md": ["Manrope"],
+                    "h3": ["Space Grotesk"],
+                    "body-sm": ["Manrope"],
+                    "h2": ["Space Grotesk"],
+                    "body-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.08em", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(127, 119, 221, 0.5);
+            box-shadow: 0 0 15px rgba(127, 119, 221, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-glow {
+            box-shadow: 0 0 10px rgba(197, 192, 255, 0.4);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131411;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a27;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden">
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex flex-col h-screen py-lg space-y-md bg-surface border-r border-outline-variant/30 docked left-0 h-full w-[280px] shrink-0">
+<div class="px-lg mb-xl">
+<h2 class="font-h2 text-h2 font-black text-primary">Command Center</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Optimization Engine</p>
+</div>
+<nav class="flex-1 space-y-xs px-md">
+<a href="dashboard.html" class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all cursor-pointer rounded-lg group">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a href="analytics.html" class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all cursor-pointer rounded-lg group">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a href="schedule.html" class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all cursor-pointer rounded-lg group">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<a href="strategy.html" class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all cursor-pointer rounded-lg group">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">Creators</span>
+</a>
+<!-- Active Tab: Settings -->
+<a href="settings.html" class="flex items-center gap-md px-md py-sm text-primary font-bold border-r-2 border-primary bg-surface-container transition-all cursor-pointer rounded-l-lg">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-lg py-md">
+<div class="p-md glass-card rounded-xl text-center">
+<p class="font-label-sm text-label-sm text-primary mb-sm">PRO PLAN ACTIVE</p>
+<button class="w-full py-sm bg-primary text-on-primary rounded-lg font-label-md hover:brightness-110 transition-all active:scale-95">Upgrade to Pro</button>
+</div>
+</div>
+<div class="px-md mt-auto">
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all cursor-pointer rounded-lg group">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 bg-background relative">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center h-16 px-md w-full bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 docked full-width top-0 z-50">
+<div class="flex items-center gap-md">
+<div class="font-h3 text-h3 font-bold text-primary">OptiMetric</div>
+</div>
+<div class="flex items-center gap-xl">
+<div class="hidden md:flex items-center gap-sm bg-surface-container-low px-md py-xs rounded-full border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-secondary active-glow"></span>
+<span class="font-label-md text-label-md text-secondary">Accuracy: 98%</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95">settings</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/30">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a creative digital entrepreneur in a high-tech studio environment. The lighting is moody with purple and cyan rim lights, creating a high-performance tech-noir aesthetic. The user has a confident expression, wearing minimalist dark clothing. The background is softly blurred, showing hints of futuristic hardware and glowing data screens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-28DCyzst7ieopXyIqK7L-DIrxGvdJBFwv_Du-7iUxiGtmgh_zOeBa1cFL_IL6COmtFeTUY44IRIGwINgceldg2SkXHDHpNHBAHcxg2OdCdV0Xi9FyyJQEE9RO6tE9CnDwGnNXrPhM2DZuM_vOeFAC4YNy0Kq_-5enG0loSE-yPOvwVn4rlWpwWMIiX8dSSH-77qEHa5AMTEhuXY0yLA9YFKczDQvHmAzJN-ghUySKX5bwX8gXSrSmvjleXb8wxP9mhuEPNBxIs8"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 overflow-y-auto p-lg md:p-xl space-y-xl">
+<!-- Page Header -->
+<section class="space-y-xs">
+<div class="flex items-center gap-xs text-on-surface-variant font-label-sm text-label-sm">
+<span>Command Center</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary">Settings</span>
+</div>
+<h1 class="font-h1 text-h1 text-on-surface">Settings</h1>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Account & Preferences -->
+<div class="lg:col-span-7 space-y-lg">
+<!-- Account Profile -->
+<section class="glass-card rounded-xl p-lg space-y-lg">
+<h3 class="font-h3 text-h3 flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">person</span>
+                                Account Profile
+                            </h3>
+<div class="flex items-center gap-xl p-md bg-surface-container-low rounded-lg border border-outline-variant/10">
+<div class="relative">
+<div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary shadow-[0_0_20px_rgba(197,192,255,0.2)]">
+<img alt="Alpha_Creator Avatar" class="w-full h-full object-cover" data-alt="Close-up detail of a professional avatar for a high-performance creator. The subject is a young male with sharp features, lit by dramatic violet and deep blue ambient light. The scene is set in a dark, minimalist workspace that feels technologically advanced. The mood is focused and sophisticated, perfectly aligned with a tech-noir design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqHbPUFf_QlcSTcpBNoJZp8ThBapfaaFmOSt6ZFGAELKTmUI_62yin1MMMGc5jo5scdqRmWqcef8cL2XO2lOjmLIabqOSdKyMtHRTlqhoR21BqhIPZcO3pybf9PEmR37_P_vHJelYJShD0tldyon9ypx8H4VgJtqD6S6GtSHWZGJb0B_yLuN49QC70Tt43ZJTTyoRXkWSAc_5qPn3zCwzpfsM1xRFQ_GYRYXKdidY5dFYFbcnCdC6tFai75ftQWFTQFB6ngOn9b70"/>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-on-primary p-xs rounded-full shadow-lg hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</div>
+<div class="space-y-xs">
+<div class="flex items-center gap-sm">
+<span class="font-h3 text-h3">Alpha_Creator</span>
+<span class="px-sm py-xs bg-primary-container text-on-primary-container text-[10px] font-bold rounded tracking-widest uppercase">Pro Tier</span>
+</div>
+<p class="text-on-surface-variant font-body-sm">alpha.creator@optimetic.io</p>
+<p class="text-primary font-label-sm cursor-pointer hover:underline">Change Password</p>
+</div>
+</div>
+</section>
+<!-- Optimization Preferences -->
+<section class="glass-card rounded-xl p-lg space-y-lg">
+<h3 class="font-h3 text-h3 flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">dynamic_form</span>
+                                Optimization Preferences
+                            </h3>
+<div class="space-y-md">
+<div class="flex items-center justify-between p-md rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer" onclick="toggleSetting('auto_apply_strategy', this)">
+<div class="space-y-xs">
+<p class="font-label-md text-on-surface">Auto-Apply Strategy</p>
+<p class="text-on-surface-variant text-body-sm">Let the engine automatically optimize posts based on live trends.</p>
+</div>
+<div id="toggle-auto-apply" data-key="auto_apply_strategy" class="w-12 h-6 bg-primary rounded-full relative flex items-center px-1 active-glow">
+<div class="w-4 h-4 bg-on-primary rounded-full translate-x-6 transition-transform"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-md rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer" onclick="toggleSetting('smart_notifications', this)">
+<div class="space-y-xs">
+<p class="font-label-md text-on-surface">Smart Notifications</p>
+<p class="text-on-surface-variant text-body-sm">Only notify me for high-impact optimization opportunities.</p>
+</div>
+<div id="toggle-smart-notif" data-key="smart_notifications" class="w-12 h-6 bg-surface-container-highest rounded-full relative flex items-center px-1">
+<div class="w-4 h-4 bg-outline rounded-full transition-transform"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-md rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer" onclick="toggleSetting('weekly_reports', this)">
+<div class="space-y-xs">
+<p class="font-label-md text-on-surface">Weekly Performance Reports</p>
+<p class="text-on-surface-variant text-body-sm">Receive detailed analytics breakdown every Monday morning.</p>
+</div>
+<div id="toggle-weekly-reports" data-key="weekly_reports" class="w-12 h-6 bg-primary rounded-full relative flex items-center px-1 active-glow">
+<div class="w-4 h-4 bg-on-primary rounded-full translate-x-6 transition-transform"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- API & Integration -->
+<section class="glass-card rounded-xl p-lg space-y-lg">
+<h3 class="font-h3 text-h3 flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">api</span>
+                                API &amp; Integration
+                            </h3>
+<div class="grid grid-cols-1 gap-md">
+<div class="space-y-sm">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider">OpenAI API Key</label>
+<div class="flex gap-sm">
+<div class="flex-1 bg-surface-container-low border border-outline-variant/30 rounded-lg flex items-center px-md">
+<span class="text-on-surface font-mono tracking-tighter">sk-••••••••••••••••••••••••••••m3P1</span>
+</div>
+<button class="px-md py-sm border border-outline-variant/30 rounded-lg hover:bg-surface-container-high transition-colors font-label-md">Edit</button>
+</div>
+</div>
+<div class="space-y-sm">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider">Webhook URL</label>
+<input id="webhook-url" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-md py-sm text-on-surface focus:border-primary focus:ring-0 transition-colors" type="text" value="https://hooks.optimetic.io/v1/alpha-creator-77"/>
+</div>
+<div class="pt-sm">
+<button class="flex items-center gap-sm px-lg py-sm bg-surface-container-highest text-primary border border-primary/20 rounded-lg font-label-md hover:bg-primary/10 transition-colors active:scale-95">
+<span class="material-symbols-outlined">sync_alt</span>
+                                        Test Connection
+                                    </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Theme & Danger Zone -->
+<div class="lg:col-span-5 space-y-lg">
+<!-- Theme & Display -->
+<section class="glass-card rounded-xl p-lg space-y-lg">
+<h3 class="font-h3 text-h3 flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">palette</span>
+                                Theme &amp; Display
+                            </h3>
+<div class="space-y-md">
+<div class="space-y-sm">
+<label class="font-label-sm text-on-surface-variant uppercase tracking-wider">UI Density</label>
+<div class="grid grid-cols-3 gap-sm p-sm bg-surface-container-low rounded-lg border border-outline-variant/10">
+<button class="py-sm rounded-md font-label-sm text-on-surface-variant hover:text-on-surface">Compact</button>
+<button class="py-sm bg-surface-container-high rounded-md font-label-md text-primary active-glow">Balanced</button>
+<button class="py-sm rounded-md font-label-sm text-on-surface-variant hover:text-on-surface">Spacious</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg">
+<div class="space-y-xs">
+<p class="font-label-md text-on-surface">High-Contrast Mode</p>
+<p class="text-on-surface-variant text-body-sm">Sharper edges and higher saturation.</p>
+</div>
+<div class="w-10 h-5 bg-surface-container-highest rounded-full relative flex items-center px-1">
+<div class="w-3 h-3 bg-outline rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- System Status Card -->
+<section class="glass-card rounded-xl p-lg bg-gradient-to-br from-primary/10 to-transparent border-primary/20 overflow-hidden relative">
+<div class="relative z-10 space-y-md">
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3">System Health</h3>
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">NODE LATENCY</span>
+<span class="text-primary">24ms</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-[85%] h-full bg-primary active-glow"></div>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">GPU LOAD</span>
+<span class="text-primary">42%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-[42%] h-full bg-primary active-glow"></div>
+</div>
+</div>
+</div>
+<!-- Background abstract glow -->
+<div class="absolute -bottom-12 -right-12 w-32 h-32 bg-primary/20 blur-3xl rounded-full"></div>
+</section>
+<!-- Danger Zone -->
+<section class="border border-error/30 bg-error/5 rounded-xl p-lg space-y-lg">
+<h3 class="font-h3 text-h3 flex items-center gap-sm text-error">
+<span class="material-symbols-outlined">warning</span>
+                                Danger Zone
+                            </h3>
+<p class="text-body-sm text-on-surface-variant">These actions are destructive and cannot be reversed. Proceed with extreme caution.</p>
+<div class="space-y-sm">
+<button class="w-full py-sm border border-error/50 text-error rounded-lg font-label-md hover:bg-error/10 transition-colors active:scale-95">Reset Engine Data</button>
+<button class="w-full py-sm text-on-surface-variant font-label-sm hover:text-error transition-colors">Deactivate Alpha_Creator Account</button>
+</div>
+</section>
+</div>
+</div>
+<!-- Bottom Action Bar -->
+<div class="flex justify-end gap-md pt-xl border-t border-outline-variant/20">
+<button class="px-xl py-md text-on-surface-variant font-label-md hover:text-on-surface transition-colors">Discard Changes</button>
+<button class="px-xl py-md bg-primary text-on-primary rounded-lg font-label-md shadow-lg shadow-primary/20 hover:brightness-110 active:scale-95 transition-all">Save Preferences</button>
+</div>
+</main>
+</div>
+</div>
+<script>
+const API = 'http://localhost:5000/api';
+const toggleState = {};
+
+function applyToggleUI(el, isOn) {
+  const knob = el.querySelector('div');
+  if (isOn) {
+    el.classList.remove('bg-surface-container-highest');
+    el.classList.add('bg-primary', 'active-glow');
+    knob.classList.remove('bg-outline');
+    knob.classList.add('bg-on-primary', 'translate-x-6');
+  } else {
+    el.classList.remove('bg-primary', 'active-glow');
+    el.classList.add('bg-surface-container-highest');
+    knob.classList.remove('bg-on-primary', 'translate-x-6');
+    knob.classList.add('bg-outline');
+  }
+}
+
+function toggleSetting(key, rowEl) {
+  const el = rowEl.querySelector('[data-key]');
+  if (!el) return;
+  toggleState[key] = !toggleState[key];
+  applyToggleUI(el, toggleState[key]);
+}
+
+async function loadSettings() {
+  const s = await fetch(`${API}/settings/`).then(r => r.json()).catch(() => ({}));
+  const keys = { auto_apply_strategy: 'toggle-auto-apply', smart_notifications: 'toggle-smart-notif', weekly_reports: 'toggle-weekly-reports' };
+  for (const [key, id] of Object.entries(keys)) {
+    const isOn = s[key] === 'true';
+    toggleState[key] = isOn;
+    const el = document.getElementById(id);
+    if (el) applyToggleUI(el, isOn);
+  }
+  const webhook = document.getElementById('webhook-url');
+  if (webhook && s.webhook_url) webhook.value = s.webhook_url;
+}
+
+async function saveSettings() {
+  const btn = document.querySelector('button.bg-primary.text-on-primary.rounded-lg.font-label-md.shadow-lg');
+  const payload = { ...toggleState, webhook_url: document.getElementById('webhook-url')?.value };
+  const ok = await fetch(`${API}/settings/`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+    .then(r => r.json()).catch(() => ({ success: false }));
+  if (btn) { btn.textContent = ok.success ? 'Saved ✓' : 'Error'; setTimeout(() => btn.textContent = 'Save Preferences', 2000); }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadSettings();
+  const saveBtn = document.querySelector('button.bg-primary.text-on-primary.rounded-lg.font-label-md.shadow-lg');
+  if (saveBtn) saveBtn.addEventListener('click', saveSettings);
+});
+</script>
+</body></html>

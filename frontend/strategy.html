@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #131411;
+            color: #e5e2dd;
+            font-family: 'Manrope', sans-serif;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(127, 119, 221, 0.5);
+            box-shadow: 0 0 15px rgba(127, 119, 221, 0.15);
+        }
+        .range-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #c5c0ff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(197, 192, 255, 0.5);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d2e4ff",
+                        "surface-bright": "#3a3936",
+                        "on-tertiary": "#00325a",
+                        "on-secondary-fixed": "#002115",
+                        "on-secondary": "#003827",
+                        "surface-dim": "#131411",
+                        "on-primary-fixed-variant": "#41379b",
+                        "primary-fixed": "#e4dfff",
+                        "outline-variant": "#474552",
+                        "on-tertiary-fixed-variant": "#004880",
+                        "surface-container-highest": "#353532",
+                        "background": "#131411",
+                        "surface-container-high": "#2a2a27",
+                        "surface-container": "#20201d",
+                        "surface-container-lowest": "#0e0e0c",
+                        "on-surface-variant": "#c8c4d4",
+                        "primary-fixed-dim": "#c5c0ff",
+                        "primary-container": "#8c84eb",
+                        "primary": "#c5c0ff",
+                        "surface-tint": "#c5c0ff",
+                        "on-primary": "#2a1c84",
+                        "tertiary-fixed-dim": "#a1c9ff",
+                        "tertiary-container": "#4494e7",
+                        "surface-container-low": "#1c1c19",
+                        "secondary-fixed-dim": "#68dbae",
+                        "outline": "#928f9d",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "inverse-on-surface": "#31302d",
+                        "secondary-fixed": "#86f8c9",
+                        "on-secondary-container": "#003121",
+                        "on-background": "#e5e2dd",
+                        "on-tertiary-container": "#002b4f",
+                        "on-surface": "#e5e2dd",
+                        "surface": "#131411",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-container": "#23127d",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "secondary-container": "#26a37a",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#5951b4",
+                        "inverse-surface": "#e5e2dd",
+                        "secondary": "#68dbae",
+                        "tertiary": "#a1c9ff",
+                        "surface-variant": "#353532",
+                        "on-primary-fixed": "#140067",
+                        "on-tertiary-fixed": "#001c38"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "md": "16px",
+                        "margin": "32px",
+                        "lg": "24px",
+                        "gutter": "20px",
+                        "2xl": "48px",
+                        "unit": "4px",
+                        "xl": "32px",
+                        "3xl": "64px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Space Grotesk"],
+                        "h2": ["Space Grotesk"],
+                        "body-sm": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "label-md": ["Space Grotesk"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Space Grotesk"],
+                        "h1": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.08em", "fontWeight": "500"}],
+                        "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-lowest/80 backdrop-blur-xl border-r border-outline-variant/20 flex flex-col h-full py-xl px-md z-50">
+<div class="mb-3xl">
+<h1 class="font-h3 text-h3 font-bold text-primary tracking-tight">Command Center</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Optimization Engine</p>
+</div>
+<nav class="flex-1 space-y-sm">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant font-medium hover:bg-primary/10 hover:text-primary transition-all duration-300" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant font-medium hover:bg-primary/10 hover:text-primary transition-all duration-300" href="analytics.html">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant font-medium hover:bg-primary/10 hover:text-primary transition-all duration-300" href="schedule.html">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-primary font-bold border-r-2 border-primary bg-primary/5 transition-all duration-300" href="strategy.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-md text-label-md">Strategy</span>
+</a>
+</nav>
+<div class="mt-auto pt-xl border-t border-outline-variant/10 space-y-sm">
+<button class="w-full py-md px-lg bg-primary text-on-primary rounded-xl font-label-md text-label-md font-bold mb-lg active:scale-95 transition-transform">
+                New Campaign
+            </button>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant font-medium hover:bg-primary/10 hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant font-medium hover:bg-primary/10 hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 left-[280px] h-16 bg-background/50 backdrop-blur-md border-b border-outline-variant/10 flex justify-between items-center px-margin z-40">
+<div class="flex items-center gap-xl">
+<span class="font-label-md text-label-md font-black text-on-surface uppercase tracking-widest">OptiNode V1</span>
+<div class="hidden lg:flex gap-lg">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Network Status: Online</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Accuracy: 98.4%</span>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="text-right hidden sm:block">
+<p class="font-label-sm text-label-sm font-bold">Alpha_Creator</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Pro Tier</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-on-surface-variant cursor-pointer">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] pt-16 min-h-screen p-margin">
+<div class="max-w-6xl mx-auto space-y-xl">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-lg">
+<div>
+<h2 class="font-h1 text-h2 text-on-surface">Strategy Configuration</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Fine-tune the weights and thresholds of the Neural-Engine to align with your brand's growth velocity.</p>
+</div>
+<button class="px-xl py-md bg-secondary text-on-secondary-container rounded-xl font-label-md text-label-md font-bold flex items-center gap-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined">play_circle</span>
+                    Simulate Logic
+                </button>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Logic Weights Card -->
+<div class="md:col-span-8 glass-card rounded-xl p-xl flex flex-col justify-between min-h-[400px]">
+<div class="mb-xl">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-primary">balance</span>
+<h3 class="font-h3 text-h3">Logic Weights</h3>
+</div>
+<p class="font-body-md text-on-surface-variant">Define the influence of core metrics on final score generation.</p>
+</div>
+<div class="space-y-xl">
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface">Base Engagement</label>
+<span id="val-base" class="text-primary font-bold">0.45</span>
+</div>
+<input id="slider-base" class="w-full h-1 bg-surface-container-highest rounded-full appearance-none range-slider" max="1" min="0" step="0.01" type="range" value="0.45"/>
+</div>
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface">Activity Score</label>
+<span id="val-activity" class="text-primary font-bold">0.30</span>
+</div>
+<input id="slider-activity" class="w-full h-1 bg-surface-container-highest rounded-full appearance-none range-slider" max="1" min="0" step="0.01" type="range" value="0.30"/>
+</div>
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface">Historical Performance</label>
+<span id="val-history" class="text-primary font-bold">0.25</span>
+</div>
+<input id="slider-history" class="w-full h-1 bg-surface-container-highest rounded-full appearance-none range-slider" max="1" min="0" step="0.01" type="range" value="0.25"/>
+</div>
+</div>
+<div class="mt-xl pt-lg border-t border-outline-variant/10 flex items-center gap-sm text-on-surface-variant italic font-body-sm">
+<span class="material-symbols-outlined text-sm">info</span>
+                        Total sum must equal 1.00 for engine stability.
+                    </div>
+</div>
+<!-- Threshold Management Card -->
+<div class="md:col-span-4 glass-card rounded-xl p-xl flex flex-col items-center justify-center text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+<span class="material-symbols-outlined text-5xl text-primary mb-md" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<h3 class="font-h3 text-h3 mb-sm">Post Now Threshold</h3>
+<p class="font-body-sm text-on-surface-variant mb-xl px-md">Minimum score required for immediate automatic deployment.</p>
+<div class="relative w-40 h-40 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="57" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span id="threshold-val" class="text-4xl font-h1 font-bold text-on-surface">0.87</span>
+<span class="text-xs font-label-sm text-primary uppercase tracking-widest">Target</span>
+</div>
+</div>
+<div class="flex gap-sm mt-xl">
+<button onclick="adjustThreshold(-0.01)" class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined">remove</span></button>
+<button onclick="adjustThreshold(0.01)" class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined">add</span></button>
+</div>
+</div>
+<!-- Platform Rules Section -->
+<div class="md:col-span-6 glass-card rounded-xl p-xl">
+<div class="flex items-center justify-between mb-xl">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">tune</span>
+<h3 class="font-h3 text-h3">Platform Rules</h3>
+</div>
+<span class="px-sm py-xs bg-secondary/10 text-secondary border border-secondary/20 rounded-md text-[10px] font-bold uppercase tracking-widest">Active</span>
+</div>
+<div class="space-y-lg">
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-[#E1306C]/20 flex items-center justify-center">
+<img alt="Instagram Logo" class="w-6 h-6" data-alt="Official Instagram color gradient logo with white icon lines, set against a dark glassmorphism background with soft ambient lighting. The visual style is premium and high-fidelity, matching the Tech-Noir aesthetic of the dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUiQIDCCs5L7bXRoJyW0GK04eH_uowyx7B7we7DzYBnhVCZOU_cPuhdZYk_tgXYyeqCFaSydkyEH1pFP-FZ9kgKSyPtJpcVr0KolcckDpB1-y4gvXI-DLXdQ8HDzKJeVRemvLyHDXgIEbaMzJ4j51jRTHm72mc1pWJpMZCBDuTMF75Qak-JRS-5Wyh_QHPxa1jk7K9IrYLSlJHLvelevhAur7M_PIEQZj8U_zXFGLwTjnDZQ4WO15UIQ6vgGAfzh3CBCNNYdHK0OE"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold">Prioritize Reels</p>
+<p class="text-xs text-on-surface-variant">Boost Reel content weight by 1.5x</p>
+</div>
+</div>
+<div class="relative inline-block w-12 h-6 rounded-full bg-secondary cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-[#FF0000]/20 flex items-center justify-center">
+<img alt="YouTube Logo" class="w-6 h-6" data-alt="Official YouTube brand logo with the red play button icon, presented in a sleek digital UI context. The surrounding environment features deep blacks and subtle purple glows to ensure consistent color grading across the dashboard experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBriMbzMiWn926z8Oun_Y5AzlKHa4KdV9DN-hr1bAdUuWFk_5t4YSQDNsDJAL6EnN_tEnzWmaKASKeC7gXO4KdJ7atQt3SMeyGiXRKbJPQniMaYGlB4ah1-DFa7FD2mrvGwCEMt8cK2s4E3bMUWvXbh3FbPJnrGo8q8m3SAYCQ_mWwXDBBnM6e-zxj5rrmYLzNdC4zfYb7PcG06g_IfglBal88tPPXlwY32dpRqSg9mZ1hyUK_IcSh7SChQOwRMOEEj-4NgLCAmmVo"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold">Avoid Shorts overlaps</p>
+<p class="text-xs text-on-surface-variant">Gap min 4h between mobile uploads</p>
+</div>
+</div>
+<div class="relative inline-block w-12 h-6 rounded-full bg-surface-container-highest cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-outline rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">splitscreen</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold">Cross-Platform Sync</p>
+<p class="text-xs text-on-surface-variant">Maintain aesthetic cohesion across nodes</p>
+</div>
+</div>
+<div class="relative inline-block w-12 h-6 rounded-full bg-secondary cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Global Constraints Card -->
+<div class="md:col-span-6 glass-card rounded-xl p-xl">
+<div class="flex items-center gap-sm mb-xl">
+<span class="material-symbols-outlined text-error">lock_clock</span>
+<h3 class="font-h3 text-h3">Global Constraints</h3>
+</div>
+<div class="grid grid-cols-2 gap-lg mb-xl">
+<div class="p-md bg-surface-container-high rounded-xl border border-outline-variant/10">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-xs">Max Daily Posts</p>
+<div class="flex items-end gap-sm">
+<span class="text-3xl font-h2 text-on-surface">06</span>
+<span class="text-xs text-on-surface-variant mb-xs">per platform</span>
+</div>
+</div>
+<div class="p-md bg-surface-container-high rounded-xl border border-outline-variant/10">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-xs">Engine Cooling</p>
+<div class="flex items-end gap-sm">
+<span class="text-3xl font-h2 text-on-surface">15m</span>
+<span class="text-xs text-on-surface-variant mb-xs">between cycles</span>
+</div>
+</div>
+</div>
+<div class="space-y-md">
+<label class="font-label-md text-label-md text-on-surface block">Blackout Hours</label>
+<div class="flex flex-wrap gap-sm">
+<span class="px-md py-xs rounded-full bg-surface-container-highest text-on-surface border border-outline-variant/20 text-xs">00:00 - 06:00</span>
+<span class="px-md py-xs rounded-full bg-surface-container-highest text-on-surface border border-outline-variant/20 text-xs">12:00 - 13:00</span>
+<button class="w-8 h-8 rounded-full bg-primary/10 text-primary border border-primary/20 flex items-center justify-center hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<p class="text-[11px] text-on-surface-variant italic">Optimization will pause during these windows to maximize organic retention.</p>
+</div>
+<div class="mt-xl">
+<img alt="Data Visualization" class="w-full h-32 object-cover rounded-xl grayscale opacity-30 mix-blend-screen" data-alt="A highly complex digital dashboard visualization featuring intricate line graphs and density maps in shades of deep indigo and neon violet. The UI elements are sleek and minimalist, representing historical performance data and strategic bottlenecks in a futuristic data science aesthetic. The lighting is cinematic, with soft glows highlighting key data points." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbj6UyJB5Jut5uE_IM3pyv7R9D2MSl6uPBsMzIgE49ed_ueWurVPN27uhH4g8GkLYuX3geIUl8FFt21awPsGbxQyw-rndey9fsJb-8Rn8IoSvVZuxUEQ2yrRjwOVjE-InBrHScel_mwP0_lJw6Sd2yjMRM57h4n9E6c2e2T96TgDEmR09Jjb7BDrCe_rOJYkirqHVqa6bAsx2_8WoJCfdbFxKLRKtchpXMO9g7nmHxHjkctBz9zdtD5q_oN8Rh02LwMM2mMr284Ek"/>
+</div>
+</div>
+</div>
+<!-- Footer Action Bar -->
+<div class="flex items-center justify-between p-lg glass-card rounded-2xl">
+<div class="flex items-center gap-md">
+<div class="w-3 h-3 rounded-full bg-secondary animate-pulse"></div>
+<p class="font-body-sm text-on-surface-variant">Current Strategy: <span class="text-on-surface font-bold">V4_AGGRESSIVE_GROWTH</span></p>
+</div>
+<div class="flex gap-md">
+<button class="px-xl py-sm rounded-xl border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-variant transition-colors">Discard Changes</button>
+<button class="px-xl py-sm rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold shadow-lg shadow-primary/20">Apply &amp; Update Engine</button>
+</div>
+</div>
+</div>
+</main>
+<script>
+const API = 'http://localhost:5000/api';
+let currentThreshold = 0.87;
+
+function updateThresholdUI() {
+  const val = Math.round(currentThreshold * 100) / 100;
+  document.getElementById('threshold-val').textContent = val.toFixed(2);
+  // Update SVG arc: circumference=440, full=440 -> offset proportional to threshold
+  const circle = document.querySelector('circle.text-primary');
+  if (circle) {
+    const offset = Math.round(440 * (1 - val));
+    circle.setAttribute('stroke-dashoffset', offset);
+  }
+}
+
+function adjustThreshold(delta) {
+  currentThreshold = Math.min(1.0, Math.max(0.5, currentThreshold + delta));
+  updateThresholdUI();
+}
+
+function bindSlider(id, valId) {
+  const slider = document.getElementById(id);
+  const label = document.getElementById(valId);
+  if (!slider || !label) return;
+  slider.addEventListener('input', () => { label.textContent = parseFloat(slider.value).toFixed(2); });
+}
+
+async function loadStrategy() {
+  const d = await fetch(`${API}/strategy/`).then(r => r.json()).catch(() => ({}));
+  if (!d.post_now_threshold) return;
+  currentThreshold = d.post_now_threshold;
+  updateThresholdUI();
+  const map = { 'slider-base': ['val-base', d.weight_base ?? 0.45], 'slider-activity': ['val-activity', d.weight_activity ?? 0.30], 'slider-history': ['val-history', d.weight_history ?? 0.25] };
+  for (const [sid, [vid, val]] of Object.entries(map)) {
+    const s = document.getElementById(sid); const v = document.getElementById(vid);
+    if (s) s.value = val; if (v) v.textContent = parseFloat(val).toFixed(2);
+  }
+}
+
+async function saveStrategy() {
+  const payload = {
+    post_now_threshold: currentThreshold,
+    weight_base: parseFloat(document.getElementById('slider-base')?.value ?? 0.45),
+    weight_activity: parseFloat(document.getElementById('slider-activity')?.value ?? 0.30),
+    weight_history: parseFloat(document.getElementById('slider-history')?.value ?? 0.25),
+  };
+  const res = await fetch(`${API}/strategy/`, { method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) }).then(r=>r.json()).catch(()=>({success:false}));
+  const btn = document.querySelector('button.bg-primary.text-on-primary.font-label-md.font-bold');
+  if (btn) { btn.textContent = res.success ? 'Engine Updated ✓' : 'Error'; setTimeout(()=> btn.textContent = 'Apply & Update Engine', 2000); }
+}
+
+async function simulate() {
+  const payload = { post_now_threshold: currentThreshold };
+  const res = await fetch(`${API}/strategy/simulate`, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) }).then(r=>r.json());
+  const statusEl = document.querySelector('.text-on-surface.font-bold');
+  if (statusEl && res.summary) statusEl.textContent = `Post Now: ${res.summary.post_now} | Scheduled: ${res.summary.scheduled} | Changed: ${res.summary.decisions_changed}`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadStrategy();
+  bindSlider('slider-base', 'val-base');
+  bindSlider('slider-activity', 'val-activity');
+  bindSlider('slider-history', 'val-history');
+  const applyBtn = document.querySelector('button.bg-primary.text-on-primary.font-label-md.font-bold');
+  if (applyBtn) applyBtn.addEventListener('click', saveStrategy);
+  const simBtn = document.querySelector('button.bg-secondary');
+  if (simBtn) simBtn.addEventListener('click', simulate);
+});
+</script>
+</body></html>
