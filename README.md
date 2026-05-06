@@ -78,7 +78,7 @@ All pages share a consistent glass-morphism design with dark theme, persistent s
 
 
 
-**Instructions**: Describe your approach in 200 words or less. Address the following:
+##**Instructions**: Describe your approach in 200 words or less. Address the following:
 
 Our system determines optimal posting time by scoring all 24 hourly slots using a multiplicative formula: Base Engagement × Activity Score × Historical Engagement. For each content item, we evaluate every platform-hour combination, selecting the highest-scoring slot. Platform selection is intrinsic to this search—each candidate (Instagram or YouTube) is scored independently, and the platform with the highest score automatically wins. This ensures data-driven, not arbitrary, cross-platform decisions. To balance platform activity patterns with creator history, we multiply a universal platform-activity curve (peak hours 18-23 for Instagram, 20-23 for YouTube) against creator-specific historical engagement per platform, content type, and hour. This weights real creator past performance more heavily than generic platform trends. The decision between immediate posting vs. scheduling uses an adaptive threshold (default 0.87). Content scoring above the threshold triggers "post now" for maximum real-time impact; lower-scoring content is scheduled for its predicted optimal future slot, preserving engagement potential. Time-sensitive content receives boosts (High: +30%, Medium: +15%) to increase urgency. All thresholds and boost multipliers are user-configurable via the strategy dashboard, allowing real-time tuning without redeployment.
 
