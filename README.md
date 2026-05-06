@@ -55,6 +55,28 @@ scheduled day has already passed.
 | `schedule_bp` | `/api/schedule` | Weekly calendar, today focus, queue |
 | `strategy_bp` | `/api/strategy` | Config CRUD + simulate |
 | `settings_bp` | `/api/settings` | Key-value app settings |
+## Frontend Architecture
+
+The frontend consists of five static HTML pages styled with Tailwind CSS and Google Material Symbols, each communicating with the Flask backend via REST API calls to http://localhost:5000/api/.
+
+#Dashboard (dashboard.html)
+– Landing page displaying four KPI cards (Total Content, Post Now, Scheduled, Accuracy) fetched from /api/dashboard/metrics. Includes a donut chart showing decision distribution and a content table with search/filter capabilities (by decision, platform, time slot) powered by /api/dashboard/content. Hourly density bars visualize Instagram vs. YouTube distribution.
+
+#Analytics (analytics.html) 
+– Performance analysis page loading platform accuracy metrics from /api/analytics/platform-accuracy, top 10 content from /api/analytics/top-content, decision impact comparison from /api/analytics/decision-impact, and a 30-day engagement trend line chart. A heatmap grid shows peak engagement windows (Friday 20:00-21:00 UTC highlighted).
+
+#Schedule (schedule.html) 
+– Weekly calendar view fetching data from /api/schedule/weekly with platform filtering and week navigation. Unscheduled queue sidebar loads from /api/schedule/queue. Includes modal for adding content via POST to /api/schedule/add. Toggle between calendar and list views.
+
+#Strategy (strategy.html) 
+– Configuration interface loading thresholds from /api/strategy/. Users adjust logic weights and Post Now threshold (0.5-1.0) via range sliders and circular gauge. Platform rule toggles (Prioritize Reels, Avoid Shorts Overlaps, Cross-Platform Sync). Simulate button calls /api/strategy/simulate to preview decision changes before applying.
+
+#Settings (settings.html) 
+– User preferences loaded from /api/settings/ with toggle switches for auto-apply strategy, smart notifications, and weekly reports. API key and webhook URL configuration. Saves changes via PUT to /api/settings/.
+
+All pages share a consistent glass-morphism design with dark theme, persistent sidebar navigation, and responsive layout. No frontend frameworks—pure vanilla JavaScript handles all API interactions and DOM updates.
+
+
 
 **Instructions**: Describe your approach in 200 words or less. Address the following:
 
